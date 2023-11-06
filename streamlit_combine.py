@@ -1,24 +1,21 @@
 import streamlit as st
 import os
-from PyPDF.PdfFileReader import PdfFileReader
-from PyPDF.PdfFileWriter import PdfFileWriter
+import PyPDF2
 from io import BytesIO
 import tempfile
 
 # Custom CSS and Streamlit setup
 # ... (same as in your previous code)
 
-# Function to combine PDFs using PyPDF
+# Function to combine PDFs using PyPDF2
 def combine_pdfs(input_files, output_file):
-    pdf_merger = PdfFileWriter()
+    pdf_merger = PyPDF2.PdfFileMerger()
 
     try:
         for input_file in input_files:
-            pdf_reader = PdfFileReader(input_file)
-            for page_num in range(pdf_reader.getNumPages()):
-                pdf_merger.addPage(pdf_reader.getPage(page_num))
+            pdf_merger.append(input_file)
 
-        # Create a BytesIO buffer to store the combined PDF
+        # Write the combined PDF to a BytesIO buffer
         pdf_buffer = BytesIO()
         pdf_merger.write(pdf_buffer)
         pdf_buffer.seek(0)  # Reset the buffer position
@@ -37,20 +34,4 @@ def combine_pdfs(input_files, output_file):
 # ...
 
 # Display a "Combine" button to combine the PDFs
-if st.button("Combine") and uploaded_files:
-    # Output file where the combined PDF will be saved
-    output_file_path = os.path.join(tempfile.gettempdir(), output_file_name)
-
-    # Call the function to combine the PDFs using PyPDF
-    if combine_pdfs(input_files, output_file_path):
-        st.success("PDFs successfully combined.")
-
-        # Display a "Download" button for the combined PDF
-        with open(output_file_path, "rb") as file:
-            st.download_button(
-                label="Download",
-                data=file.read(),
-                file_name=output_file_name,
-            )
-else:
-    st.warning("Please upload at least one PDF file :)")
+if
