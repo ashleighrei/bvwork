@@ -34,4 +34,6 @@ def combine_pdfs(input_files, output_file):
 # ...
 
 # Display a "Combine" button to combine the PDFs
-if
+if st.button("Combine") and uploaded_files:
+    # Output file where the combined PDF will be saved
+    output_file_path = os.path.join(tempfile.gettemp
