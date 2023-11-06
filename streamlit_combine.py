@@ -1,13 +1,13 @@
 import streamlit as st
 import os
-from PyPDF4 import PdfFileReader, PdfFileWriter
+from PyPDF import PdfFileReader, PdfFileWriter
 from io import BytesIO
 import tempfile
 
 # Custom CSS and Streamlit setup
 # ... (same as in your previous code)
 
-# Function to combine PDFs using PyPDF4
+# Function to combine PDFs using PyPDF
 def combine_pdfs(input_files, output_file):
     pdf_merger = PdfFileWriter()
 
@@ -40,7 +40,7 @@ if st.button("Combine") and input_files:
     # Output file where the combined PDF will be saved
     output_file_path = os.path.join(tempfile.gettempdir(), output_file_name)
 
-    # Call the function to combine the PDFs using PyPDF4
+    # Call the function to combine the PDFs using PyPDF
     if combine_pdfs(input_files, output_file_path):
         st.success("PDFs successfully combined.")
 
