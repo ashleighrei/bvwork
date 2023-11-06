@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-import PyPDF2
+import pypdf
 from io import BytesIO
 import tempfile
 
@@ -30,7 +30,7 @@ st.markdown('<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@4
 # Function to combine PDFs
 def combine_pdfs(input_files, output_file):
     # Create a PDF merger object
-    pdf_merger = PyPDF2.PdfMerger()
+    pdf_merger = pypdf.PdfMerger()
 
     try:
         # Iterate through input PDF files and append them to the merger
