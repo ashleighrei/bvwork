@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import PyPDF
 from PyPDF import PdfFileReader, PdfFileWriter
 from io import BytesIO
 import tempfile
