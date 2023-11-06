@@ -1,6 +1,16 @@
 import streamlit as st
 import os
-import fitz  # PyMuPDF
+
+import streamlit as st
+import os
+import subprocess
+
+# Install PyMuPDF (Fitz) using pip
+subprocess.check_call(['pip', 'install', 'PyMuPDF'])
+
+# Import PyMuPDF (Fitz) after installation
+import fitz
+
 from io import BytesIO
 import tempfile
 
