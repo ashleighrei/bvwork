@@ -1,0 +1,2 @@
+streamlit==0.101.0  # Replace with the desired Streamlit version
+PyMuPDF==1.18.13  # Replace with the desired PyMuPDF version
