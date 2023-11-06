@@ -1,7 +1,7 @@
 import streamlit as st
 import os
-import PyPDF
-from PyPDF import PdfFileReader, PdfFileWriter
+from PyPDF.PdfFileReader import PdfFileReader
+from PyPDF.PdfFileWriter import PdfFileWriter
 from io import BytesIO
 import tempfile
 
@@ -37,7 +37,7 @@ def combine_pdfs(input_files, output_file):
 # ...
 
 # Display a "Combine" button to combine the PDFs
-if st.button("Combine") and input_files:
+if st.button("Combine") and uploaded_files:
     # Output file where the combined PDF will be saved
     output_file_path = os.path.join(tempfile.gettempdir(), output_file_name)
 
